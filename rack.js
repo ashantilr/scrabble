@@ -21,7 +21,6 @@ export class Rack {
    * @param {Game} game The game whose bag to take the tiles from.
    */
   takeFromBag(n, game) {
-    // TASK #6: Implement the takeFromBag method
     
   }
 }
