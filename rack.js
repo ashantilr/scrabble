@@ -13,10 +13,7 @@ export class Rack {
     return this.available;
   }
 
-  /**
-   * This function will draw n tiles from the game's bag. If there are not
-   * enough tiles in the bag, this should take all the remaining ones.
-   *
+  
    * @param {number} n The number of tiles to take from the bag.
    * @param {Game} game The game whose bag to take the tiles from.
    */
