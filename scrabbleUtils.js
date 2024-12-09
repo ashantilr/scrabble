@@ -143,11 +143,7 @@ function baseScore(word) {
 function possibleWords(availableTiles) {
   const possibilities = [];
 
-  // Let n be the size of the dictionary, m be the number of tiles in hand. This
-  // implementation is not the fastest, O(nm). We could use permutations which
-  // would execute in O(m!). It would theoretically be faster, since in standard
-  // Scrabble, m is constant and equals 7. This other method would however scale
-  // really bad with many wildcard tiles.
+  // Let n be the size of the dictionary, m be the number of tiles in hand. 
   for (let word of dictionary) {
     if (canConstructWord(availableTiles, word)) {
       possibilities.push(word);
