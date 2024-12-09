@@ -5,7 +5,7 @@ import { promises as pfs } from "fs";
 
 const deleteFileIfExists = async (filePath) => {
   try {
-    // Check if the file exists
+    // Checks if the file exists
     await pfs.access(filePath);
     // File exists, proceed to delete
     await pfs.unlink(filePath);
@@ -58,7 +58,7 @@ function zipDirectory(sourceDir, zipFilePath) {
   });
 }
 
-// Zip the submission directory
+
 const sourceDirectory = "."; // Replace with the directory you want to zip
 const zipFileName = "submission.zip"; // Replace with your desired zip file name
 zipDirectory(sourceDirectory, zipFileName)
