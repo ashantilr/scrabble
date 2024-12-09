@@ -3,12 +3,11 @@
  */
 class Scoring {
   /**
-   * Initialize the board.
    *
    * The board is a 15x15 2D array/grid of objects. Rather than store letter
-   * tiles as we do in the Game, we store its multiplier scoring properties.
+   * tiles, i store its multiplier scoring properties.
    *
-   * We use the tables defined after this class to initialize the board. These
+   * use the tables defined after this class to initialize the board. These
    * tables define all of the multiplier rules of the Scrabble board.
    *
    * Each entry is either undefined or an object with the following properties:
@@ -38,13 +37,13 @@ class Scoring {
    * @returns {number} the score of the word
    */
   score(word, position, direction) {
-    // The score we are going to compute
+    // The score to compute
     let score = 0;
 
     // The word score multiplier accumulated across each letter in the word
     let wordMultiplier = 1;
 
-    // Split the word into individual letters so we can iterate over them
+    // Split the word into individual letters
     const letters = word.split("");
 
     // Compute the score for each letter in the word
@@ -59,12 +58,12 @@ class Scoring {
       // Get the multiplier for the letter and its position
       const boardMultiplier = this.board[coordinate.x][coordinate.y];
 
-      // If the letter's position is on a word multiplier, we accumulate it
+      // If the letter's position is on a word multiplier, accumulate it
       if (boardMultiplier && boardMultiplier.kind === "ws") {
         wordMultiplier *= boardMultiplier.multiplier;
       }
 
-      // If the letter's position is on a letter multiplier, we save it
+      // If the letter's position is on a letter multiplier, save it
       let letterMultiplier = 1;
       if (boardMultiplier && boardMultiplier.kind === "ls") {
         letterMultiplier = boardMultiplier.multiplier;
@@ -81,17 +80,7 @@ class Scoring {
   }
 
   /**
-   * This function is used to return a unique string representing the multiplier
-   * at the given board position. The string that is produced has the following
-   * format:
-   *
-   *   KINDxMULTIPLIER
-   *
-   * Examples: LSx2 WSx3
-   *
-   * This can be used for a class name to style the multiplier when rendered to
-   * the browser window.
-   *
+   
    * @param {number} x the x coordinate of the board position
    * @param {number} y the y coordinate of the board position
    * @returns {string} a string representing the multiplier for the position
@@ -137,10 +126,6 @@ export const letterScores = {
 };
 
 /**
- * This is an internal method is used to look up the multiplier that is used at
- * the x, y position that is given. We use the `positionMultipliers` table that
- * is defined after this function.
- *
  * @param {number} x the x coordinate of a board square
  * @param {number} y the y coordinate of a board square
  * @returns the multiplier entry if it exists; undefined otherwise
@@ -154,10 +139,6 @@ function findMultipliers(x, y) {
 //
 // This table is used to initialize a ScrabbleScoring object. See the
 // ScrabbleScoring constructor to see how it is used.
-//
-// See
-// https://en.wikipedia.org/wiki/Scrabble#/media/File:Blank_Scrabble_board_with_coordinates.svg
-//
 //
 // Each entry in the table below is an object with the following properties:
 //
@@ -236,5 +217,5 @@ const positionMultipliers = [
   { x: 15, y: 15, kind: "ws", multiplier: 3 },
 ];
 
-// Export the one and only Scoring object.
+
 export const scoring = new Scoring();
