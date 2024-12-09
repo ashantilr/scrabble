@@ -30,7 +30,7 @@ export class Game {
   }
 
   #initBag() {
-    // TASK #1: Implement the initBag method
+    
     const bag = [];
     for(let x=0; x<12; ++x)
     {
@@ -87,7 +87,7 @@ export class Game {
   }
 
   #initGrid() {
-    // TASK #3: Implement the initGrid method
+    
     const grid = [undefined];
     let row=[undefined];
     for(let x=0; x<15; x++)
@@ -109,7 +109,7 @@ export class Game {
    * @returns {Array<string>} The first n tiles removed from the bag.
    */
   takeFromBag(n) {
-    // TASK #5: Implement the takeFromBag method
+    
     let arr=[];
     if(this.#bag.length===0){ return [];}
     if(n>(this.#bag.length - n))
@@ -127,7 +127,7 @@ export class Game {
   }
 
   #canBePlacedOnBoard(word, position, direction) {
-    // TASK #4.1: Implement the #canBePlacedOnBoard method
+    
     let length = word.length;
     let canPlace = true;
     if(position.x >15 || position.x<0||position.y >15 || position.y<0)
@@ -175,7 +175,7 @@ export class Game {
   }
 
   #placeOnBoard(word, position, direction) {
-    // TASK #4.2: Implement the #placeOnBoard method
+  
     let length = word.length;
     if(direction)
     {
@@ -212,7 +212,6 @@ export class Game {
    * or -1 if the word cannot be placed.
    */
   playAt(word, position, direction) {
-    // We first check if the word can be placed
     if (!this.#canBePlacedOnBoard(word, position, direction)) {
       return -1;
     }
@@ -225,13 +224,11 @@ export class Game {
   }
 
   render(element) {
-    // TASK #7: Implement the render method
+    
     
   }
 
-  // These functions are used by the auto-grader to check your implementation.
-  // You can ignore them as part of the rest of the implementation, but feel
-  // free to use them for your own testing purposes.
+  
   testGetBag() {
     return this.#bag;
   }
